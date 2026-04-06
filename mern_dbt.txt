@@ -1,0 +1,2 @@
+Why Angular JS
+When to use referential and embedded and what is that

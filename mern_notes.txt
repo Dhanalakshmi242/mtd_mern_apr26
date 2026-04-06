@@ -1,0 +1,123 @@
+MERN - Full Stack
+
+client    -> server    -> db
+(frontend)   (backend)    (persistent store)
+  UI          App logic
+
+client : React JS | Angular | Vue JS
+	(Javascript | Typescript)
+	UI: HTML/CSS, Bootstrap
+
+server : JS(express JS) | Python(Fast API/Flask/Django) | Java(SB) | C# | Go
+	(REST API)
+
+Db : RDBMS | Oracle | SQL server | MySQL | SQLite | postgres
+	(Not Only) No SQL : Mongo | Cassandra
+
+
+MERN - Full Stack
+	client-> server -> db
+	React JS -> Express JS / Node JS -> Mongo DB
+
+
+Mongo DB :
+	Cloud Mongo DB Server
+	or
+	Local Mongo DB Server
+
+Cloud :
+	Distributed Networking
+	Cluster(many computers working together -> my laptop+server)
+	Saas (Software as a service)
+	Cloud
+
+
+
+Working with 
+	Cloud Mongo DB Server
+	1. go to "mongodb.com" in browser
+	2. sign up with google account
+	3. Cluster -> Build the cluster
+	   Option : Free(512 Mb , shared RAM ,shared CPU)
+	   Cluster Name : Clustor0 (default)
+	   Provider : AWS Cloud
+	   Create Deployment
+	4. Side Menu Bar -> Clusters
+	   If "Connect" is there
+	   we may connect from our computer
+	   Need :
+		1.Username
+		2.Network inbound connection
+	5. Under security (left side menu bar)
+	  -> Database and Network Access
+	  Username : Dhanalakshmi
+	  Password : 1234
+	  Role : Built-in-role : Atlas Admin
+	  -> Add User
+	6. Under Security (left menu bar)
+	  -> Database and Network Access
+	  -> IP Access List
+	  -> Add IP Address
+	  -> Access List Entry - 0.0.0.0/0 (Everyone can access my database)
+	  -> Confirm
+	7. Ready to connect to cloud Mongo server
+	7.1 Connect via Mongo Shell
+	    Side Menu Bar
+	   -> Clusters
+	   -> Connect
+     	   -> Shell
+		-> I dont have Mongo Shell
+		-> Download the shell
+		-> Install
+		-> Terminal mongosh --version
+		copy connection string from the shell 
+		mongosh "mongodb+srv://cluster0.icofcfw.mongodb.net/" --apiVersion 1 --username Dhanalakshmi
+
+		-> Extract only connection string
+		"mongodb+srv://cluster0.icofcfw.mongodb.net/"
+		 
+
+		"mongodb+srv://username:password@cluster0.icofcfw.mongodb.net/"  (Template)
+		mongodb+srv://Dhanalakshmi:1234@cluster0.icofcfw.mongodb.net/
+
+
+		mongosh "connectionString" (Template)
+		mongosh "mongodb+srv://Dhanalakshmi:1234@cluster0.icofcfw.mongodb.net/"
+
+
+	7.2 Give the mongosh along with connstr in the terminal:
+		mongosh "mongodb+srv://Dhanalakshmi:1234@cluster0.icofcfw.mongodb.net/"
+	    We connected to the server.
+	    Test ->
+		
+
+
+
+
+#CRUD operation
+	Create Read Update delete
+	Read -> Query
+
+#Mongo DB
+	Building Block : document
+	!JSON document (BSON)
+	
+
+	*RDBMS*	 	*MongoDB*
+	___________	_____________________
+		    |
+	Database    |   Database		!Container for data
+	Table  	    |	Collection | Model
+	ROWS	    |	Documents
+	Referential |	Referential and Embedded 
+	____________	________________________
+	
+**Empty databases can't be seen in terminal when used show databases comment
+
+insertMany([{}]) - used to insert many items at a time
+insertOne([{}]) - used to insert only one item
+updateOne([{}]) - used to update only one item
+deleteOne([{}]) - used to delete items
+.find() - used to find the items / find({}) - used to find particular item
+.find() - Always return ARRAY of one document [{}]
+.findOne() - Will return one document {}
